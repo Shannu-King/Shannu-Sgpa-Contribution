@@ -96,7 +96,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const warning = document.getElementById("grade-warning");
   const credwarning = document.getElementById("credit-warning");
  
-
+ if(mymap.has(subject))
+     {
+      dummy.style.display="block";
+      return;
+     }
    const subject = capitalizeFirstLetter(subjectInput.value.trim());
       const credit = creditInput.value.trim();
       const creditValue = parseFloat(credit);
