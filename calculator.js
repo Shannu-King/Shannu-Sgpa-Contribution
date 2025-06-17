@@ -105,38 +105,23 @@ document.addEventListener("DOMContentLoaded", function () {
       const credit = creditInput.value.trim();
       const creditValue = parseFloat(credit);
       const grade = gradeInput.value.trim().toUpperCase();
-if (!subject && !credit && !grade) {
-  // All fields are empty → do nothing
-  finalwarnings.style.display = "none";
-  return;
-}
-
-if (!subject || !credit || !grade) {
-  // Some fields are filled but not all → show error
-  finalwarnings.style.display = "block";
-  return;
-}
-
-if (
-  mymap.has(subject) ||
-  isNaN(creditValue) ||
-  creditValue < 0.5 || creditValue > 5 ||
-  !['O', 'A', 'B', 'C', 'D', 'E', 'F', 'S'].includes(grade) ||
-  (!isNaN(subject) && subject !== "")
-) {
-  finalwarnings.style.display = "block";
-  return;
-} else {
-  mymap.set(subject, true);
-  subjectdata.push({ subject, grade, credit: creditValue });
-  totalcredits += creditValue;
-  finalwarnings.style.display = "none";
-  subjectunderflow.style.display = "none";
-  subjectInput.value = "";
-  gradeInput.value = "";
-  creditInput.value = "";
-  subjectInput.focus();
-}
+if(subject&&credit&&grade){
+ if(mymap.has(subject)||isNaN(creditValue)||(creditValue<0.5||creditValue>5)||
+ !['O', 'A', 'B', 'C', 'D', 'E', 'F','S'].includes(grade))
+  {
+    finalwarnings.style.display="block";
+    return;
+  }
+else{
+   mymap.set(subject,true);
+      subjectdata.push({ subject, grade, credit: creditValue });
+      totalcredits += creditValue;
+       finalwarnings.style.display="none";
+       subjectunderflow.style.display="none";
+      subjectInput.value = "";
+      gradeInput.value = "";
+      creditInput.value = "";
+      subjectInput.focus();
 
  
     
