@@ -102,17 +102,29 @@ document.addEventListener("DOMContentLoaded", function () {
       const creditValue = parseFloat(credit);
       const grade = gradeInput.value.trim().toUpperCase();
 if(subject&&credit&&grade){
- if(mymap.has(subject)||(creditValue<0.5||creditValue>5)||
- !['O', 'A', 'B', 'C', 'D', 'E', 'F','S'].includes(grade))
-  {
-    finalwarnings.style.display="block";
-    return;
-  }
-else{
+  if(mymap.has(subject))
+     {
+      dummy.style.display="block";
+      return;
+     }
+      if (isNaN(creditValue) || creditValue < 0.5 || creditValue > 5) {
+        credwarning.style.display = "block";
+        return;
+      }
+       else {
+        credwarning.style.display = "none";
+       }
+         if (!['O', 'A', 'B', 'C', 'D', 'E', 'F', 'S'].includes(grade)) {
+        warning.style.display = "block";
+        return;
+      } else {
+        warning.style.display = "none";
+      }
+
  subjectdata.push({ subject, credit: creditValue, grade });
  totalcredits+=creditValue;
   finalwarnings.style.display="none";
-}
+      
 }
   if (subjectdata.length === 0) {
         subjectunderflow.style.display="block";
