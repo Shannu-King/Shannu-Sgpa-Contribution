@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="calculator2.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="main">
+      <div id="child">
+   <h2 id="heading">
+  <span id="icon-text">
+    Subject-wise GPA Calculator
+    <img src="calculator.png" alt="CGPA Icon" id="icon">
+  </span>
+</h2>
+<br>
+<div id="subjectunderflow" style="color: rgb(255, 0, 0); font-size: 14px; display: none; text-align: center;">
+<h2>Please enter Atleast 1 subject</h2>
+</div>
+<div id="subjectoverflow" style="color: rgb(255, 0, 0); font-size: 14px; display: none; text-align: center;">
+<h2>You can only enter a maximum of 10 subjects.</h2>
+</div>
+<br>
+
+<form>
+  <input type="text" placeholder="Enter Subject" id="subjects" required>
+  <br>
+  <div id="warningdup" style="color: rgb(255, 0, 0); font-size: 14px; display: none;">
+ Subject is already Entered
+</div>
+  
+<input type="text" placeholder="Enter Number of Credits (0.5 - 5)" id="credits" required>
+<br>
+<div id="credit-warning" style="color: rgb(255, 0, 0); font-size: 14px; display: none;">Credits must be between 0.5 and 5</div>
+
+<input type="text" placeholder="Enter the Grade" id="grades" required>
+<div id="grade-warning" style="color: rgb(255, 0, 0); font-size: 14px; display: none;">
+ Invalid Grade
+</div>
+<div id="finalwarn" style="color: rgb(255, 0, 0); font-size: 14px; display: none;">
+ Enter Valid Credentials
+</div>
+<br>
+   <br>
+   <div id="buttons">
+   <button type="submit" id="submits">Add Subject</button>
+   <button type="reset" id="submits1">Clear</button>
+   </div>
+   <br>
+     <button type="submit" id="final" onclick="">Calculate Final Gpa</button>
+</form>
+<br>
+<br>
+<div class="whats-new">
+  <div class="new-title"><h2>🔔 What's New in v1.0 🎉</h2></div>
+<br>
+<br>
+  <div class="feature">
+    <strong>🧮 Subject-wise GPA Calculation</strong><br>
+    Easily add up to 10 subjects with grades and credits.
+  </div>
+<br>
+  <div class="feature">
+    <strong>📱 Mobile-Responsive Design</strong><br>
+    Fully optimized layout for phones and tablets.
+  </div>
+
+  <br>
+
+  <div class="feature">
+    <strong>📊 Result Summary Page</strong><br>
+    View your calculated GPA with subject breakdown.
+  </div>
+<br>
+  <div class="feature">
+    <strong>🛠️ Optimized Performance</strong><br>
+    Faster load time, smooth UI transitions, and minimal bugs.
+  </div>
+<br>
+  <div class="feature">
+    <strong>💖 Crafted by Shanmukh Tharun</strong><br>
+    Built with ❤️ using HTML, CSS, and JavaScript.
+  </div>
+  <br>
+</div>
+
+
+       
+      </div>
+    </div>
+
+    <footer>
+      <span>
+        © 2025 Made with ❤️ | Shannu |
+        <a href="https://github.com/Shannu-King" target="_blank">Shanmukh Tharun</a>
+      </span>
+    </footer>
+    <script src="calculator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="calculator5.png">
+ <style>
+    body
+    {
+      border: 4px solid black;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-align: center;
+        background-color: white;
+    }
+  #bodi {
+  position: relative;
+  margin-top: 50px;
+  width: 800px;
+  min-height: 500px;
+  background-color: white;
+  padding: 20px;
+  overflow: auto;
+  
+  border: 4px solid; /* Required! */
+  border-image: linear-gradient(to right, #ff3fb2, violet, darkblue, #5959ff) 1;
+  border-radius: 8px; /* Optional, adds nice rounding */
+  
+  z-index: 1;
+}
+
+    table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      font-family: 'Poppins', sans-serif;
+    }
+#resultTable td:first-child {
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+}
+
+
+h2{
+     font-family: 'Roboto Condensed', sans-serif;
+}
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+    .back
+    {
+      z-index: 2;
+      display: flex;
+      position: absolute;
+      left: 20px;
+      top: 25px;
+    }
+  .afterTableLine {
+  position: relative;
+ left: 570px; 
+  bottom: 15px;
+  font-size: 20px;
+  color: #333;
+  width: 100px;
+  border: 1px solid black;
+  font-family: 'Oswald', sans-serif;
+}
+.gpaText {
+  position: relative;
+  left: 190px;
+  top: -10px;
+  font-size: 18px;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+.download
+{
+  position: absolute;
+  top: 27px;
+  right: 13px;
+}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+//       document.addEventListener("DOMContentLoaded", function () {
+//   const finaloutput = JSON.parse(localStorage.getItem("finaloutput"));
+// finaloutput.forEach((item, index) => {
+//   console.log(`Subject ${index + 1}:`);
+//   console.log(`  Name: ${item.subject}`);
+//   console.log(`  Grade: ${item.grade}`);
+//   console.log(`  Credit: ${item.credit}`);
+//   console.log(`  Gpa Associated: ${item.creditassociated}`);
+//   console.log(`  Achieved: ${item.achieved}`);
+// }); 
+// });
+// <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const finaloutput = JSON.parse(localStorage.getItem("finaloutput"));
+    const gpaValue = JSON.parse(localStorage.getItem("gpa"));
+const gpaText = document.getElementById("displayGpa");
+
+if (gpaValue !== null && gpaText) {
+  gpaText.textContent = `Your SGPA is: ${gpaValue.toFixed(2)}`;
+}
+    const tableBody = document.getElementById("tableBody");
+
+    if (!finaloutput || finaloutput.length === 0) {
+      tableBody.innerHTML = "<tr><td colspan='5'>No data available</td></tr>";
+      return;
+    }
+
+    finaloutput.forEach((item) => {
+      const row = document.createElement("tr");
+
+      row.innerHTML = `
+        <td>${item.subject}</td>
+        <td>${item.grade}</td>
+        <td>${item.credit}</td>
+        <td>${item.creditassociated}</td>
+        <td>${item.achieved}</td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+
+  });
+
+    </script>
+    <script>function downloadPDF() {
+  const element = document.getElementById('bodi');
+  document.querySelector('.back').style.display = 'none';
+  document.querySelector('button[onclick="downloadPDF()"]').style.display = 'none';
+  const opt = {
+    margin:       0.5,
+    filename:     'Subject_wise_GPA.pdf',
+    image:        { type: 'jpeg', quality: 0.96 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+
+  html2pdf().set(opt).from(element).save();
+}
+</script>
+  </head>
+  <body>
+<div id="bodi">
+  <div class="topp"> <div class="back">
+        <button type="submit" onclick="window.history.back()"><span style="font-size: 15px; width: 15px;">&larr;</span>Back</button>
+      </div>
+  <h2 style="text-align:center;">Your Subject Wise GPA Report</h2>
+  </div>
+ 
+<button onclick="downloadPDF()" class="download">Download PDF</button>
+
+
+  <table id="resultTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+        <th>Credits</th>
+        <th>GPA Associated</th>
+        <th>Achieved</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+  
+<hr class="afterTableLine">
+
+<div id="displayGpa" class="gpaText"></div>
+</div>
+
+     
+<script src="calculator.js"></script>
+  </body>
+
+</html>

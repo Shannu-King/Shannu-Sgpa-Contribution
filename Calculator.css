@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url('calculator1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+#main {
+  height: calc(100vh - 100px); 
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+   padding-bottom: 120px;
+   padding-top: 300px;
+}
+
+
+#child {
+
+    margin-top: 200px;
+   width: 90%;
+  max-width: 500px;
+  min-height: 500px;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 3px solid;
+  border-image-slice: 10;
+  border-image-source: linear-gradient(to right, #ff3fb2, violet, darkblue,  #5959ff);
+  padding: 20px;
+  border-radius: 6px;
+ 
+  width: 90%;
+  max-width: 500px;
+  margin-top: 200px;
+  padding: 20px;
+  
+
+}
+
+
+
+#heading
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    
+}#icon-text {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+  text-align: center;
+}
+#subjects, #credits, #grades {
+  width: 50%;
+  height: 38px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#grade-warning {
+  transition: opacity 1s ease;
+}
+
+form {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  
+}
+input {
+   font-family:  "Host Grotesk", sans-serif;
+  outline: none;
+  border: 1px solid #ccc;
+  font-weight: bolder;
+}
+
+input:hover,
+input:focus {
+  border: 3px solid blue;
+  border-width: 3px;
+   border: 3px solid blue;
+}
+
+#icon {
+  width: 36px;
+  height: 36px;
+}
+#buttons
+{
+    position: static;
+  bottom: 190px;
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:80px;
+}
+button
+{
+  position: static;
+  background-color: #3210e1;
+  width: 100px;
+  height: 30px;
+  color: white;
+  box-shadow: #3210e1;
+   border: 2px solid blue;
+   border-radius: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  background: linear-gradient(90deg, rgb(233, 37, 168) , violet,  rgb(0, 119, 255) , blue);
+}
+#final
+{
+  position: static;
+  bottom: 100px;
+  width: 220px;
+  height: 30px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+   background-color: #ffffff72;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+   font-family: 'Fira Sans', sans-serif;
+   font-weight: bolder;
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+footer {
+  text-align: center;
+}
+.whats-new
+{
+  text-align: center;
+  
+}
+.new-title{
+  font-family: 'Rowdies', sans-serif;
+}
+@media (max-width: 600px) {
+  #child {
+    width: 95%;
+    padding: 15px;
+  }
+
+  #buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  #final, button {
+    width: 60%; 
+    font-size: 14px;
+  }
+  a {
+  color: inherit; 
+  text-decoration: none; 
+}
+
+a:hover{
+  color: black;
+}
+  #heading {
+    font-size: 20px;
+    text-align: center;
+  }
+#subjects, #credits, #grades {
+  width: 80%; 
+}
+
+  #icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  footer {
+    height: auto;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+  }
+}
