@@ -96,35 +96,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const warning = document.getElementById("grade-warning");
   const credwarning = document.getElementById("credit-warning");
  
- if(mymap.has(subject))
-     {
-      dummy.style.display="block";
-      return;
-     }
+
    const subject = capitalizeFirstLetter(subjectInput.value.trim());
       const credit = creditInput.value.trim();
       const creditValue = parseFloat(credit);
       const grade = gradeInput.value.trim().toUpperCase();
 if(subject&&credit&&grade){
- if(mymap.has(subject)||isNaN(creditValue)||(creditValue<0.5||creditValue>5)||
+ if(mymap.has(subject)||(creditValue<0.5||creditValue>5)||
  !['O', 'A', 'B', 'C', 'D', 'E', 'F','S'].includes(grade))
   {
     finalwarnings.style.display="block";
     return;
   }
 else{
-   mymap.set(subject,true);
-      subjectdata.push({ subject, grade, credit: creditValue });
-      totalcredits += creditValue;
-       finalwarnings.style.display="none";
-       subjectunderflow.style.display="none";
-      subjectInput.value = "";
-      gradeInput.value = "";
-      creditInput.value = "";
-      subjectInput.focus();
-
- 
-    
+ subjectdata.push({ subject, credit: creditValue, grade });
+ totalcredits+=creditValue;
+  finalwarnings.style.display="none";
+}
 }
   if (subjectdata.length === 0) {
         subjectunderflow.style.display="block";
