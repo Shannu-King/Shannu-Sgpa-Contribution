@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const creditValue = parseFloat(credit);
       const grade = gradeInput.value.trim().toUpperCase();
 if(subject&&credit&&grade){
- if(mymap.has(subject)||(creditValue<0.5||creditValue>5)||isNAN(creditvalue)||
+ if(mymap.has(subject)||isNAN(creditvalue)||(creditValue<0.5||creditValue>5)||
  !['O', 'A', 'B', 'C', 'D', 'E', 'F','S'].includes(grade))
   {
     finalwarnings.style.display="block";
