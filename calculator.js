@@ -113,9 +113,16 @@ if(subject&&credit&&grade){
     return;
   }
 else{
- subjectdata.push({ subject, credit: creditValue, grade });
- totalcredits+=creditValue;
-  finalwarnings.style.display="none";
+   mymap.set(subject,true);
+      subjectdata.push({ subject, grade, credit: creditValue });
+      totalcredits += creditValue;
+       finalwarnings.style.display="none";
+       subjectunderflow.style.display="none";
+      subjectInput.value = "";
+      gradeInput.value = "";
+      creditInput.value = "";
+      subjectInput.focus();
+
 }
 }
   if (subjectdata.length === 0) {
