@@ -124,6 +124,12 @@ else{
       subjectInput.focus();
 
 }
+  if(!subject||!credits||!grade)
+  {
+    finalwarnings.style.display="block";
+    return;
+  }
+    
 }
   if (subjectdata.length === 0) {
         subjectunderflow.style.display="block";
